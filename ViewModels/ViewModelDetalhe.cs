@@ -11,7 +11,7 @@ namespace Teste_Luz_MVVM_2.ViewModels
 {
     public class ViewModelDetalhe : ViewModelBase
     {
-        public ClienteModel Cliente { get; set; }
+        public FuncionarioModel Funcionario { get; set; }
         public Command<Window> ConfirmarCommand { get; set; }
 
         public ViewModelDetalhe()

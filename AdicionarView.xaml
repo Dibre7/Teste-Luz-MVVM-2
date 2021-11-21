@@ -5,10 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Teste_Luz_MVVM_2"
         mc:Ignorable="d"
-        Title="Cliente" Height="450" Width="800" x:Name="jnCliente">
+        Title="Funcionário" Height="450" Width="800" x:Name="jnCliente">
     <Grid>
-        <TextBox Text="{Binding Cliente.Nome}" HorizontalAlignment="Left" Height="32" Margin="51,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="685"/>
-        <Button Content="Confirmar" HorizontalAlignment="Left" Margin="661,360,0,0" VerticalAlignment="Top" Width="75" IsDefault="True" Command="{Binding ConfirmarCommand}" CommandParameter="{Binding ElementName=jnCliente}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="753*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Text="{Binding Funcionario.Nome}" HorizontalAlignment="Left" Height="32" Margin="11.5,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="685" Grid.Column="1"/>
+        <Button Content="Confirmar" HorizontalAlignment="Left" Margin="621.5,360,0,0" VerticalAlignment="Top" Width="75" IsDefault="True" Command="{Binding ConfirmarCommand}" CommandParameter="{Binding ElementName=jnCliente}" Grid.Column="1"/>
+        <Label Content="Nome do Funcionário:" HorizontalAlignment="Left" Margin="24.5,30,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox Text="{Binding Funcionario.Idade}" HorizontalAlignment="Left" Height="32" Margin="11.5,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="685" Grid.Column="1"/>
+        <Label Content="Idade" HorizontalAlignment="Left" Margin="24.5,115,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.276,0.558" Grid.Column="1"/>
+        <Label Content="Setor" Grid.Column="1" HorizontalAlignment="Left" Margin="24,196,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.171,0.538"/>
+        <TextBox Text="{Binding Funcionario.Setor}" HorizontalAlignment="Left" Height="32" Margin="12,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="685" Grid.Column="1"/>
+        <Label Content="PIS" Grid.Column="1" HorizontalAlignment="Left" Margin="26,278,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding Funcionario.Pis}" HorizontalAlignment="Left" Height="32" Margin="12,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="685" Grid.Column="1"/>
 
     </Grid>
 </Window>

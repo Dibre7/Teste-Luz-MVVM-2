@@ -12,48 +12,52 @@ namespace Teste_Luz_MVVM_2.ViewModels
     public class ViewModelList : ViewModelBase
     {
 
-        public ObservableCollection<ClienteModel> Clientes { get; set; }
+        public ObservableCollection<FuncionarioModel> Funcionarios { get; set; }
         public Command AdicionarCommand { get; set; }
-        public Command<ClienteModel> EditarCommand { get; set; }
-        public Command<ClienteModel> RemoverCommand { get; set; }
+        public Command<FuncionarioModel> EditarCommand { get; set; }
+        public Command<FuncionarioModel> RemoverCommand { get; set; }
 
         public ViewModelList()
         {
-            Clientes = new ObservableCollection<ClienteModel>();
+            Funcionarios = new ObservableCollection<FuncionarioModel>();
             AdicionarCommand = new Command(Adicionar);
-            EditarCommand = new Command<ClienteModel>(Editar);
-            RemoverCommand = new Command<ClienteModel>(Remover);
+            EditarCommand = new Command<FuncionarioModel>(Editar);
+            RemoverCommand = new Command<FuncionarioModel>(Remover);
         }
 
-        private void Remover(ClienteModel model)
+        private void Remover(FuncionarioModel model)
         {
-            Clientes.Remove(model);
+            Funcionarios.Remove(model);
         }
 
-        private void Editar(ClienteModel model)
+        private void Editar(FuncionarioModel model)
         {
             //temporário
-            var temporario = new ClienteModel { Nome = model.Nome };
-
-            var vm = new ViewModelDetalhe { Cliente = temporario };
+            var temporario = new FuncionarioModel { Nome = model.Nome , Idade = model.Idade, Setor = model.Setor, Pis = model.Pis};
+              
+            var vm = new ViewModelDetalhe { Funcionario = temporario };
             var view = new AdicionarView(vm);
 
             view.ShowDialog();
 
-            if(view.DialogResult.HasValue && view.DialogResult == true)
+            if(view.DialogResult.HasValue && view.DialogResult == true) //verificar se concluiu
             {
                 model.Nome = temporario.Nome;
+                model.Idade = temporario.Idade;
+                model.Setor = temporario.Setor;
+                model.Pis = temporario.Pis;
             }
         }
 
         private void Adicionar()
         {
-            var vm = new ViewModelDetalhe { Cliente = new ClienteModel() };
-            var view = new AdicionarView(vm);
+
+            var vm = new ViewModelDetalhe { Funcionario = new FuncionarioModel() }; //Instanciar a ViewModel Base
+            var view = new AdicionarView(vm);                               //Instanciar a janela
 
             view.ShowDialog();
 
-            Clientes.Add(vm.Cliente);
+            Funcionarios.Add(vm.Funcionario);
         }
     }
 }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Janela Principal" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="dataGrid" ItemsSource="{Binding Clientes}" HorizontalAlignment="Left" Height="275" Margin="80,49,0,0" VerticalAlignment="Top" Width="626"/>
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding Funcionarios}" HorizontalAlignment="Left" Height="275" Margin="80,49,0,0" VerticalAlignment="Top" Width="626"/>
         <Button Content="Adicionar" Command="{Binding AdicionarCommand}" HorizontalAlignment="Left" Margin="631,356,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name ="btnRemover" Content="Remover" Command="{Binding RemoverCommand}" HorizontalAlignment="Left" Margin="530,356,0,0" VerticalAlignment="Top" Width="75" CommandParameter="{Binding ElementName=dataGrid, Path=SelectedItem}"/>
         <Button Content="Editar" Command="{Binding EditarCommand}" HorizontalAlignment="Left" Margin="425,356,0,0" VerticalAlignment="Top" Width="75" CommandParameter="{Binding ElementName=dataGrid, Path=SelectedItem}"/>
